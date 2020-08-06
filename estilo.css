@@ -60,84 +60,239 @@ header .menu li:hover {
   border-radius: 15px;
 }
 
+/*
+ * Made by Erik Terwan
+ * 24th of November 2015
+ * MIT License
+ *
+ *
+ * If you are thinking of using this in
+ * production code, beware of the browser
+ * prefixes.
+ */
+ 
+ #menuToggle
+ {
+   visibility: hidden;
+   display: block;
+   position: relative;
+   top: 30px;
+   left: 700px;
+   
+   z-index: 1;
+   
+   -webkit-user-select: none;
+   user-select: none;
+ }
+ 
+ #menuToggle a
+ {
+   text-decoration: none;
+   color: #232323;
+   
+ }
+ 
+ #menuToggle a:hover
+ {
+   color: tomato;
+ }
+ 
+ 
+ #menuToggle input
+ {
+   display: block;
+   width: 40px;
+   height: 32px;
+   position: absolute;
+   top: -7px;
+   left: -5px;
+   
+   cursor: pointer;
+   
+   opacity: 0; /* hide this */
+   z-index: 2; /* and place it over the hamburger */
+   
+   -webkit-touch-callout: none;
+ }
+ 
+ /*
+  * Just a quick hamburger
+  */
+ #menuToggle span
+ {
+   display: block;
+   width: 50px;
+   height: 5px;
+   margin-bottom: 10px;
+   position: relative;
+   
+   background: aliceblue;
+   border-radius: 3px;
+   
+   z-index: 1;
+   
+   transform-origin: 4px 0px;
+   
+   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+               background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+               opacity 0.55s ease;
+ }
+ 
+ #menuToggle span:first-child
+ {
+   transform-origin: 0% 0%;
+ }
+ 
+ #menuToggle span:nth-last-child(2)
+ {
+   transform-origin: 0% 100%;
+ }
+ 
+ /* 
+  * Transform all the slices of hamburger
+  * into a crossmark.
+  */
+ #menuToggle input:checked ~ span
+ {
+   opacity: 1;
+   transform: rotate(45deg) translate(-2px, -1px);
+   background: aliceblue;
+ }
+ 
+ /*
+  * But let's hide the middle one.
+  */
+ #menuToggle input:checked ~ span:nth-last-child(3)
+ {
+   opacity: 0;
+   transform: rotate(0deg) scale(0.2, 0.2);
+ }
+ 
+ /*
+  * Ohyeah and the last one should go the other direction
+  */
+  #menuToggle input:checked ~ span:nth-last-child(2)
+  {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+ 
+ /*
+  * Make this absolute positioned
+  * at the top left of the screen
+  */
+ #menu
+ {
+   position: static;
+   width: 300px;/*300px*/
+   margin: -100px 0 0 -300px;
+   padding: 50px;
+   padding-top: 125px;
+   
+   background: #251d4d;
+   list-style-type: none;
+   -webkit-font-smoothing: antialiased;
+   /* to stop flickering of text in safari */
+
+   transform-origin: 0%, 0%;
+   transform: translate(100%, 0%);
+   
+   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+ }
+ 
+ #menu li
+ {
+   padding: 10px 0;
+   font-size: 40px;
+   color: aliceblue;
+ }
+ 
+ /*
+  * And let's slide it in from the left
+  */
+  #menuToggle input:checked ~ ul
+  {
+    transform: none;
+  }
+ 
 /*-----------------     Capa    ------------*/
 
 figure{
-    margin: 0;
+  margin: 0;
 }
 
 figure .imagemfundo{
-    background: url(img/Imagem\ de\ fundo.jpg);
-    background-size: cover;
-    alt: "Painel Solar";
-    height: 100%;
-    padding: 10px;
+  background: url(img/imagemfundo.jpg);
+  background-size: cover;
+  alt: "Painel Solar";
+  height: 100%;
+  padding: 10px;
 }
 
 figure .título{
-    font-size: 30px;
-    color:#251d4d /*Azul escuro*/;
-    margin-left: 55%;
-    margin-right: 5%;
-    text-shadow: 1px, 1px, black;
+  font-size: 30px;
+  color:#251d4d /*Azul escuro*/;
+  margin-left: 55%;
+  margin-right: 5%;
+  text-shadow: 1px, 1px, black;
 }
 
 figure h1.título{
-    margin-top: 9%;
-    margin-bottom: -1%;
-    font-size: 42px;
+  margin-top: 9%;
+  margin-bottom: -1%;
+  font-size: 42px;
 }
 
 figure h2.título{
-    border-top: 3px solid #e4dd79 /*Dourado / Amarelo claro*/;
-    padding-top: 0.5%;
-    padding-bottom: 30px;
+  border-top: 3px solid #e4dd79 /*Dourado / Amarelo claro*/;
+  padding-top: 0.5%;
+  padding-bottom: 30px;
 }
 
 /*-------------------   Texto   ----------------------*/
 
 .Seção{
-    background: aliceblue;
+  background: aliceblue;
 }
 
 .pequeno{
-    width: 5%;
+  width: 5%;
 }
 
 .pequeno2{
-    width: 2%;
+  width: 2%;
 }
 
 h2.centro{
-    margin-top: 2%;
-    font-size: 36px;
-    text-align: center;
+  margin-top: 0%;
+  padding-top: 5%;
+  font-size: 36px;
+  text-align: center;
 }
 
 iframe.video{
-    margin-left: 2%;
-    margin-bottom: 2%;
+  margin-left: 2%;
+  margin-bottom: 2%;
 }
 
 p.Paragrafo{
-    font-size: 18px;
-    margin-left: 5%;
-    margin-right: 5%;
-    text-align: justify;
+  font-size: 18px;
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: justify;
 }
 
 p.Paragrafo2{
-    font-size: 18px;
-    text-align: center;
+  font-size: 18px;
+  text-align: center;
 }
 
 /*
 #caixa{
-    margin-left: 28.5%;
-    margin-right: 28.5%;
-    width: 42.5%;
-    height: 42.5%;
-    border: 3px solid #443232;;
+  margin-left: 28.5%;
+  margin-right: 28.5%;
+  width: 42.5%;
+  height: 42.5%;
+  border: 3px solid #443232;;
 }
 
 */
@@ -145,78 +300,78 @@ p.Paragrafo2{
 /*----------------  Metas   ----------------*/
 
 .icone{
-    width: 50%;
+  width: 50%;
 }
 
 .icone:hover{
-    background-color: aliceblue;
-    border-radius: 20px;
-    
+  background-color: aliceblue;
+  border-radius: 20px;
+  
 }
 
 /*----------------  Notícias   ----------------*/
 
 h2.centro2{
-    font-size: 36px;
-    text-align: center;
+  font-size: 36px;
+  text-align: center;
 }
 
 h3.centro, h4.centro{
-    font-size: 22px;
+  font-size: 22px;
 }
 
 .link2 {
-    color: black;
-    text-decoration: initial;
-  }
-  .link2:hover {
-    color: black;
-  }
+  color: black;
+  text-decoration: initial;
+}
+.link2:hover {
+  color: black;
+}
 
-  .fotos{
-      width: 90%;
-  }
+.fotos{
+    width: 90%;
+}
 
 /*----------------  Sobre mim   ----------------*/
 
 .final{
-    float: left;
-    font-size: 24px;
-    text-align: justify;
-    margin-left: 2%;
-    margin-top: 15%;
-    width: 100%;
+  float: left;
+  font-size: 24px;
+  text-align: justify;
+  margin-left: 2%;
+  margin-top: 15%;
+  width: 100%;
 }
 
 .eu{
-    margin-left: 40%;
-    float: left;
-    width: 45%;
-    padding-bottom:-10%;
+  margin-left: 40%;
+  float: left;
+  width: 45%;
+  padding-bottom:-10%;
 }
 
 /*----------------  Rodapé   ----------------*/
 
 .espaço{
-    margin-top: 5%;
-    margin-left: 5%;
-    text-align: center;
-    margin-right: -2%;
+  margin-top: 5%;
+  margin-left: 5%;
+  text-align: center;
+  margin-right: -2%;
 }
 
 footer {
-    background-color: #251d4d;
-    width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-    color: aliceblue;
+  background-color: #251d4d;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  color: aliceblue;
 }
-  
-  .link {
-    color: white;
+
+.link {
+  color: white;
 }
-  .link:hover {
-    color: white;
+.link:hover {
+  color: white;
 }
 
 /* --------  Partes  --------*/
@@ -259,13 +414,18 @@ footer {
     display: block;
     width: 100%;
     padding: 0;
-    margin: 100px auto;
+    margin: 10px auto;
     float: none;
+  }
+
+  html, body{
+    font-size: 24px;
   }
 
   header #logo {
     position: relative;
     width: 100%;
+    height: 70%;
     margin-left: 0px;
     text-align: center;
   }
@@ -274,18 +434,90 @@ footer {
     visibility: hidden;
   }
 
+  #menuToggle{
+    visibility: visible;
+  }
+
+  header{
+    height: 7%;
+  }
+
+  .icone{
+    margin-top: 2%;
+  }
+
   .menu li{
     padding: 15px 10px 15px 10px;
   }
 
-  figure h1.titulo {
-    margin-top: 40%;
+  figure .imagemfundo{
+    background-position-x: 50%;
   }
 
-  figure h2.titulo {
-    margin: 0 10% 0 10%;
+  figure h1.título {
+    width: 80%;
+    margin-top: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 64px;
   }
 
+  figure h2.título{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 48px;
+  }
+
+  p.Paragrafo2, p.Paragrafo, .final{
+    font-size: 34px;
+    margin-left: 2%;
+    width: 95%;
+  }
+
+  h2.centro, h2.centro2{
+    font-size: 50px;
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  h3.centro, h4.centro{
+    font-size: 34px;
+  }
+
+  iframe.video{
+    margin-left: 0%;
+    width: 95%;
+    height: 32%;
+  }
+
+  .eu{
+    margin-left: 27.5%;
+  }
+
+  .final{
+    margin-top: 5%;
+  }
+
+  footer{
+    height: 35%;
+  }
+
+  .espaço{
+    margin-left: 2%;
+    width: 95%;
+    text-align: center;
+    margin-top: 2%;
+  }
+
+  .pequeno{
+    width: 10%;
+  }
+
+  .pequeno2{
+    width: 8%;
+  }
+    
 }
 
 /*----------------  Parágrafos   ----------------*/

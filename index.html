@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="estilo.css">
         <link rel="sortcut icon" href="img/icone-site.png" type="image/png"/>
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
     </head>
 
     <body>
@@ -18,7 +19,44 @@
               <li><a href="#menu3">Notícias</a></li>
               <li><a href="#menu4">Sobre</a></li>
             </ul>
-          </header>
+
+            <!-----     Cabeçalho Mobile    ----->
+    
+            <!--    Made by Erik Terwan    -->
+            <!--   24th of November 2015   -->
+            <!--        MIT License        -->
+            <nav role="navigation">
+                <div id="menuToggle">
+                    <!--
+                    A fake / hidden checkbox is used as click reciever,
+                    so you can use the :checked selector on it.
+                    -->
+                    <input type="checkbox" />
+                    
+                     <!--
+                    Some spans to act as a hamburger.
+                        
+                    They are acting like a real hamburger,
+                    not that McDonalds stuff.
+                    -->
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    
+                    <!--
+                    Too bad the menu has to be inside of the button
+                    but hey, it's pure CSS magic.
+                    -->
+                    <ul id="menu">
+                        <a href="#menu1"><li>Projeto</li></a>
+                        <a href="#menu2"><li>Metas</li></a>
+                        <a href="#menu3"><li>Notícias</li></a>
+                        <a href="#menu4"><li>Sobre</li></a>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
         
         <!-----     Capa    ----->
 
@@ -96,7 +134,7 @@
             <!--NOTICIAS-->
 
         <section id="menu3" class="Seção">
-            <h2 class="centro2">Notícias</h1>
+            <h2 class="centro2">Notícias</h2>
             <hr class="pequeno2">
             <h3 class="centro">Veja as últimas notícias sobre ODS</h3>
             <div class="parte tres">
@@ -131,7 +169,7 @@
             </div>
 
             <div class="parte quatro"> 
-                <img class="eu" src="img/Eu.jpg" alt="Eu">
+                <img class="eu" src="img/eu.jpg" alt="Eu">
             </div>
 
         </section>
@@ -147,7 +185,7 @@
             </div>
 
             <div class="parte cinco">
-                <h1 class="espaço">Fontes</h1>
+                <h2 class="centro2">Fontes</h2>
                 <p class="espaço">ONU. Ícones de 
                 <a class="link" href="https://soliker.com.br/" target="_blank">Soliker</a>, 
                 <a class="link" href="https://pt.seaicons.com/" target="_blank">Seaicons</a> e 
